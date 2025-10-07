@@ -1,7 +1,7 @@
 package AnkitLearningPath.services;
 
 import AnkitLearningPath.base.Base;
-import AnkitLearningPath.models.requests.UserLogin;
+import AnkitLearningPath.models.pet.requests.UserLogin;
 import io.restassured.response.Response;
 
 public class AuthServices extends Base {
