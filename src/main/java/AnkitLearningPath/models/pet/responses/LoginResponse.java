@@ -1,4 +1,4 @@
-package AnkitLearningPath.models.responses;
+package AnkitLearningPath.models.pet.responses;
 
 import lombok.Data;
 

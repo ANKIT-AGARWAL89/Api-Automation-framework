@@ -9,7 +9,7 @@ import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.*;
 
 public class Base {
-    private static final String BASE_URI = "http://64.227.160.186:8080";
+    private static final String BASE_URI = "https://petstore.swagger.io/v2";
     protected static RequestSpecification requestSpecification = given().baseUri(BASE_URI);
 
     protected static Response postRequest(Object payload, String endpoint) {

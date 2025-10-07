@@ -1,10 +1,9 @@
 package tests;
 
-import AnkitLearningPath.models.requests.UserLogin;
-import AnkitLearningPath.models.responses.LoginResponse;
+import AnkitLearningPath.models.pet.requests.UserLogin;
+import AnkitLearningPath.models.pet.responses.LoginResponse;
 import AnkitLearningPath.services.AuthServices;
 import io.restassured.response.Response;
-import lombok.Builder;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
