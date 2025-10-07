@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <Properties>
+        <!-- Base directory for log files -->
+        <Property name="logBasePath">./logs</Property>
+    </Properties>
+
+    <!-- ===========================
+         1. Appenders: Where logs go
+         =========================== -->
+    <Appenders>
+
+        <!-- Console Appender -->
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <!-- File Appender for daily logs -->
+        <RollingFile name="FileAppender"
+                     fileName="${logBasePath}/api-automation.log"
+                     filePattern="${logBasePath}/api-automation-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/> <!-- Rotate daily -->
+<!--                <SizeBasedTriggeringPolicy size="10MB"/> &lt;!&ndash; or if file > 10MB &ndash;&gt;-->
+            </Policies>
+<!--            <DefaultRolloverStrategy max="10"/>-->
+        </RollingFile>
+
+    </Appenders>
+
+    <!-- ===========================
+         2. Loggers: What gets logged
+         =========================== -->
+    <Loggers>
+
+        <!-- Root logger: default for all classes -->
+        <Root level="INFO">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="FileAppender"/>
+        </Root>
+
+        <!-- Package logger: your automation framework -->
+        <!--        <Logger name="com.yourproject" level="DEBUG" additivity="false">-->
+        <!--            <AppenderRef ref="ConsoleAppender"/>-->
+        <!--            <AppenderRef ref="FileAppender"/>-->
+        <!--        </Logger>-->
+
+        <!-- Optional: Rest Assured logging (if using filters) -->
+        <!--        <Logger name="io.restassured" level="DEBUG" additivity="false">-->
+        <!--            <AppenderRef ref="ConsoleAppender"/>-->
+        <!--            <AppenderRef ref="FileAppender"/>-->
+        <!--        </Logger>-->
+
+    </Loggers>
+
+</Configuration>
