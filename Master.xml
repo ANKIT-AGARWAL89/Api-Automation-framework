@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="MinimalSuite">
+    <test name="QuickTests">
+        <classes>
+            <class name="tests.Test3"/>
+        </classes>
+    </test>
+</suite>
