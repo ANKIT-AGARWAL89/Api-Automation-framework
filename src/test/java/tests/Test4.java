@@ -4,6 +4,7 @@ import AnkitLearningPath.models.pet.requests.Category;
 import AnkitLearningPath.models.pet.requests.PetRequest;
 import AnkitLearningPath.models.pet.requests.Tag;
 import AnkitLearningPath.services.PetServices;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -27,5 +28,13 @@ public class Test4 {
                 .id(0).name("tommy").photoUrls(Collections.singletonList("jsndn"))
                 .status("available").category(category).tags(tagList).build();
         PetServices.addpet(petRequest);
+    }
+    @Test
+    public void ke(){
+        Assert.assertTrue(false);
+    }
+    @Test(dependsOnMethods = "ke")
+    public void ka(){
+        Assert.assertTrue(false);
     }
 }

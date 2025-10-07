@@ -1,8 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="MinimalSuite">
+
+    <listeners>
+        <listener class-name="AnkitLearningPath.util.ExtentReportManager"></listener>
+    </listeners>
+
     <test name="QuickTests">
         <classes>
-            <class name="tests.Test3"/>
+            <class name="tests.Test4"/>
         </classes>
     </test>
 </suite>
