@@ -4,6 +4,7 @@ import AnkitLearningPath.models.pet.requests.Category;
 import AnkitLearningPath.models.pet.requests.PetRequest;
 import AnkitLearningPath.models.pet.requests.Tag;
 import AnkitLearningPath.services.PetServices;
+import AnkitLearningPath.util.RetryAnalyzer;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -29,7 +30,7 @@ public class Test4 {
                 .status("available").category(category).tags(tagList).build();
         PetServices.addpet(petRequest);
     }
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void ke(){
         Assert.assertTrue(false);
     }

@@ -2,6 +2,8 @@ package AnkitLearningPath.base;
 
 import static io.restassured.RestAssured.*;
 
+import AnkitLearningPath.util.ConfigReader;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -12,8 +14,18 @@ import org.apache.logging.log4j.Logger;
 import static io.restassured.RestAssured.*;
 
 public class Base {
-    private static final String BASE_URI = "https://petstore.swagger.io/v2";
+    private static final String BASE_URI = ConfigReader.getProperty("baseuri");
     protected static RequestSpecification requestSpecification = given().baseUri(BASE_URI);
+
+    // To make thread safe for parrell execution -
+//    private static ThreadLocal<RequestSpecification> requestSpec = new ThreadLocal<>();
+//    public static RequestSpecification getRequestSpec() {
+//        if (requestSpec.get() == null) {
+//            requestSpec.set(io.restassured.RestAssured.given().baseUri(BASE_URI));
+//        }
+//        return requestSpec.get();
+//    }
+
     protected static Logger logger = LogManager.getLogger(Base.class);
 
     protected static Response postRequest(Object payload, String endpoint) {
